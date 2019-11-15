@@ -11,6 +11,7 @@ const BubblePage = () => {
         AxiosWithAuth()
             .get('/colors')
             .then(res => {
+                console.log('Initial Fetch' , res.data);
                 setColorList(res.data);
             })
             .catch(err => console.log(err));

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import AxiosWithAuth from '../utils/AxiosWithAuth';
 
 const initialColor = {
@@ -60,6 +61,7 @@ const ColorList = ({ colors, updateColors }) => {
                     </li>
                 ))}
             </ul>
+            <Link to={'/add-color'} className='add-button'>Add Color</Link>
             {editing && (
                 <form onSubmit={saveEdit}>
                     <legend>edit color</legend>
@@ -91,7 +93,6 @@ const ColorList = ({ colors, updateColors }) => {
                 </form>
             )}
             <div className="spacer" />
-            {/* stretch - build another form here to add a color */}
         </div>
     );
 };
