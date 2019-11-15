@@ -28,25 +28,27 @@ const AddColor = props => {
     };
 
     return (
-        <div>
+        <div className='add-form-container'>
             <form onSubmit={submitForm} className='add-form'>
                 <input
                     type='text'
-                    name="color"
+                    name='color'
                     value={newColor.color}
                     onChange={handleChange}
-                    placeholder='color'
+                    placeholder='color name'
                     autoComplete='off'
+                    className='add-input'
                 />
                 <input
                     type='text'
                     name='hex'
                     value={newColor.code.hex}
                     onChange={handleHexChange}
-                    placeholder='code'
+                    placeholder='hex value'
                     autoComplete='off'
+                    className='add-input'
                 />
-                <button className='button'>Add Color</button>
+                <button className='add-button'>Add Color</button>
             </form>
         </div>
     )

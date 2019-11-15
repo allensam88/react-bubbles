@@ -61,7 +61,7 @@ const ColorList = ({ colors, updateColors }) => {
                     </li>
                 ))}
             </ul>
-            <Link to={'/add-color'} className='add-button'>Add Color</Link>
+            <Link to={'/add-color'} className='add-link'>Add Color</Link>
             {editing && (
                 <form onSubmit={saveEdit}>
                     <legend>edit color</legend>

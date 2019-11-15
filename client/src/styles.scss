@@ -98,17 +98,41 @@ form {
   }
 }
 
-.add-button {
+.add-link {
     text-decoration: none;
     color: white;
     background-color: darkslategray;
     border: 1px solid black;
     border-radius: 5px;
+    width: 200px;
     margin: 20px;
     padding: 5px;
 }
 
-.add-button:hover {
+.add-link:hover {
     color: black;
     background-color: gray;
+}
+
+.add-form-container {
+    margin: 0 auto;
+    width: 200px;
+}
+
+.add-input {
+    font-size: 20px;
+    margin-bottom: 20px;
+    width: 134px;
+    padding: 5px;
+    border: 3px solid darkslategray;
+    border-radius: 5px;
+}
+
+.add-button {
+    font-size: 20px;
+    color: white;
+    background-color: darkslategray;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 150px;
 }
