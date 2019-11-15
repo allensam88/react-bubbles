@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
 import AxiosWithAuth from '../utils/AxiosWithAuth';
+import AddColor from './AddColor';
 
 const initialColor = {
     color: "",
@@ -10,6 +10,15 @@ const initialColor = {
 const ColorList = ({ colors, updateColors }) => {
     const [editing, setEditing] = useState(false);
     const [colorToEdit, setColorToEdit] = useState(initialColor);
+    const [modal, setModal] = useState(false);
+
+    const showModal = () => {
+        setModal(true);
+      };
+    
+    const hideModal = () => {
+        setModal(false);
+      };
 
     const editColor = color => {
         setEditing(true);
@@ -21,6 +30,7 @@ const ColorList = ({ colors, updateColors }) => {
         AxiosWithAuth()
             .put(`/colors/${colorToEdit.id}`, colorToEdit)
             .then(res => {
+                //alternate way: use .map to return the colors, but switch out colorToEdit with id match
                 updateColors([...colors.filter(item => { return item.id !== colorToEdit.id}), colorToEdit]);
                 setEditing(false);
                 alert(`Successfully updated ${colorToEdit.color}`)
@@ -61,7 +71,8 @@ const ColorList = ({ colors, updateColors }) => {
                     </li>
                 ))}
             </ul>
-            <Link to={'/add-color'} className='add-link'>Add Color</Link>
+            <AddColor modal={modal} handleClose={hideModal} updateColors={updateColors}/>
+            <button onClick={showModal} className='add-link'>Add Color</button>
             {editing && (
                 <form onSubmit={saveEdit}>
                     <legend>edit color</legend>

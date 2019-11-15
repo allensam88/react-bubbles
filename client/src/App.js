@@ -12,7 +12,6 @@ function App() {
       <div className="App">
         <Route exact path="/" component={Login} />
         <Private path="/bubble-page" component={BubblePage} />
-        <Private path="/add-color" component={AddColor} />
       </div>
     </Router>
   );
